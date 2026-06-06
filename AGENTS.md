@@ -34,9 +34,9 @@ All hardware and network config is in **`platformio.ini` `build_flags`** — do 
 | `I2C_SDA_PIN` | 21 |
 | `I2C_SCL_PIN` | 22 |
 | `MPU_ADDR` | 0x68 |
-| `WIFI_SSID` | "Edgar " |
-| `WIFI_PASS` | "augusto9" |
-| `PC_IP` | "192.168.0.7" |
+| `WIFI_SSID` | "your-ssid" |
+| `WIFI_PASS` | "your-password" |
+| `PC_IP` | "192.168.1.100" |
 | `UDP_PORT` | 5005 |
 | `DEVICE_ID` | "footsensor" |
 
