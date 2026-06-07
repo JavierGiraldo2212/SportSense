@@ -18,7 +18,8 @@
 │   └── .pio/                        # Build artifacts (gitignored)
 └── project/
     ├── udp_receiver.py              # Legacy UDP listener on port 5005
-    └── serial_receiver.py           # Python script: reads sensor JSON from USB serial
+    ├── serial_receiver.py           # Reads sensor JSON from USB serial
+    └── visualizer.py                # Live 2D/3D plots of IMU data
 ```
 
 ## Commands
@@ -35,6 +36,7 @@ Run from `Physichal_phase/` unless noted. Use `-e name` to pick an environment.
 | Serial monitor (receiver) | `pio device monitor -e receiver` |
 | Clean all | `pio run --target clean` |
 | Serial receiver (PC) | `python3 ../project/serial_receiver.py [port]` (from project/) |
+| Live visualizer (PC) | `python3 ../project/visualizer.py [port]` (from project/) |
 | Legacy UDP receiver | `python3 ../project/udp_receiver.py` (from project/) |
 
 `build_src_filter` controls which source files each env compiles — the sensor compiles `common/` + `sensor/`, the receiver only `receiver/`. No env includes both `main.cpp` files.
