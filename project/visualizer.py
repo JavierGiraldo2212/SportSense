@@ -68,6 +68,8 @@ def main():
     print("Close the plot window to exit.")
 
     buffer = deque(maxlen=WINDOW)
+    frame = 0
+    UPDATE_EVERY = 5  # redraw plots every Nth sample (~4 Hz)
 
     plt.ion()
     fig = plt.figure(figsize=(12, 8))
@@ -143,6 +145,10 @@ def main():
             if len(buffer) < 2:
                 continue
 
+            frame += 1
+            if frame % UPDATE_EVERY != 0:
+                continue
+
             xs = list(range(len(buffer)))
 
             # Update 2D acceleration
@@ -178,8 +184,6 @@ def main():
                 lines_3d[k].set_data([0, axes[0, i]], [0, axes[1, i]])
                 lines_3d[k].set_3d_properties([0, axes[2, i]])
 
-            fig.canvas.draw_idle()
-            fig.canvas.flush_events()
             plt.pause(0.001)
 
     plt.ioff()
