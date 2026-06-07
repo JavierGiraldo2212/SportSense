@@ -37,6 +37,11 @@ void setup() {
 
   esp_now_register_send_cb(OnDataSent);
 
+  uint8_t mac[6];
+  WiFi.macAddress(mac);
+  Serial.printf("# Sensor MAC: %02X:%02X:%02X:%02X:%02X:%02X\n",
+                mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
+
   esp_now_peer_info_t peer = {};
   memcpy(peer.peer_addr, receiverMac, 6);
   peer.channel = 0;
